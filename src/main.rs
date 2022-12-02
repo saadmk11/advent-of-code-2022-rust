@@ -4,7 +4,7 @@ mod d01;
 mod d02;
 
 fn read_file(day: u8) -> String {
-    fs::read_to_string(format!("d{}.txt", day)).expect("Could not read file")
+    fs::read_to_string(format!("inputs/d{}.txt", day)).expect("Could not read file")
 }
 
 fn main() {
