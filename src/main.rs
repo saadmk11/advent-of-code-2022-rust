@@ -1,12 +1,10 @@
-use std::fs;
+use helpers::read_file;
+
+mod helpers;
 
 mod d01;
 mod d02;
 mod d03;
-
-fn read_file(day: u8) -> String {
-    fs::read_to_string(format!("inputs/d{}.txt", day)).expect("Could not read file")
-}
 
 fn main() {
     println!("Advent of Code 2022!");

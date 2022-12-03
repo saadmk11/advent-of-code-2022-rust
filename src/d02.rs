@@ -45,3 +45,20 @@ pub fn part2(input: String) -> i32 {
         })
         .sum()
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_part1() {
+        let input = "A Y\nB X\nC Z\n".to_string();
+        assert_eq!(part1(input), 15);
+    }
+
+    #[test]
+    fn test_part2() {
+        let input = "A Y\nB X\nC Z\n".to_string();
+        assert_eq!(part2(input), 12);
+    }
+}
