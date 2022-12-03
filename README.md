@@ -6,4 +6,4 @@ Solutions of Advent of Code Problems as I learn Rust.
 
 Rust Programming Language: https://www.rust-lang.org/
 
-Advent of Code: https://adventofcode.com/
+Advent of Code: https://adventofcode.com/2022
