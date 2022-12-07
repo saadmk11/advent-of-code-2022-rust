@@ -19,8 +19,9 @@ pub fn part1(input: String) -> i32 {
                 dirs.push(dir_name);
             }
             (Some(file_size), Some(_), None) => {
+                let file_size: i32 = file_size.parse().unwrap();
+
                 for i in 0..dirs.len() {
-                    let file_size: i32 = file_size.parse().unwrap();
                     map.entry(format!("/{}", &dirs[1..i + 1].join("/")))
                         .and_modify(|s| *s += file_size)
                         .or_insert(file_size);
@@ -52,8 +53,9 @@ pub fn part2(input: String) -> i32 {
                 dirs.push(dir_name);
             }
             (Some(file_size), Some(_), None) => {
+                let file_size: i32 = file_size.parse().unwrap();
+
                 for i in 0..dirs.len() {
-                    let file_size: i32 = file_size.parse().unwrap();
                     map.entry(format!("/{}", &dirs[1..i + 1].join("/")))
                         .and_modify(|s| *s += file_size)
                         .or_insert(file_size);
@@ -62,9 +64,11 @@ pub fn part2(input: String) -> i32 {
             _ => (),
         }
     }
+
     let space_needed = TOTAL_REQUIRED_SPACE - (TOTAL_SPACE - map["/"]);
     let mut size_vec: Vec<&i32> = Vec::from_iter(map.values());
     size_vec.sort();
+
     **size_vec
         .iter()
         .find(|item| ***item >= space_needed)
