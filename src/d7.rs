@@ -6,10 +6,10 @@ pub fn part1(input: String) -> i32 {
     let mut map: HashMap<String, i32> = HashMap::from([("/".to_string(), 0)]);
     let mut dirs: Vec<&str> = vec!["/"];
 
-    for l in input.lines().skip(1) {
-        let cmd: Vec<&str> = l.split(' ').collect();
+    for line in input.lines().skip(1) {
+        let parts: Vec<&str> = line.split(' ').collect();
 
-        match (cmd.get(0), cmd.get(1), cmd.get(2)) {
+        match (parts.get(0), parts.get(1), parts.get(2)) {
             (Some(&"$"), Some(&"ls"), None) => (),
             (Some(&"dir"), Some(_), None) => (),
             (Some(&"$"), Some(&"cd"), Some(&"..")) => {
@@ -30,7 +30,7 @@ pub fn part1(input: String) -> i32 {
             _ => (),
         }
     }
-    map.values().filter(|x| **x <= MAX_SIZE).sum::<i32>()
+    map.values().filter(|x| **x <= MAX_SIZE).sum()
 }
 
 pub fn part2(input: String) -> i32 {
@@ -40,10 +40,10 @@ pub fn part2(input: String) -> i32 {
     let mut map: HashMap<String, i32> = HashMap::from([("/".to_string(), 0)]);
     let mut dirs: Vec<&str> = vec!["/"];
 
-    for l in input.lines().skip(1) {
-        let cmd: Vec<&str> = l.split(' ').collect();
+    for line in input.lines().skip(1) {
+        let parts: Vec<&str> = line.split(' ').collect();
 
-        match (cmd.get(0), cmd.get(1), cmd.get(2)) {
+        match (parts.get(0), parts.get(1), parts.get(2)) {
             (Some(&"$"), Some(&"ls"), None) => (),
             (Some(&"dir"), Some(_), None) => (),
             (Some(&"$"), Some(&"cd"), Some(&"..")) => {
@@ -65,13 +65,9 @@ pub fn part2(input: String) -> i32 {
         }
     }
 
-    let space_needed = TOTAL_REQUIRED_SPACE - (TOTAL_SPACE - map["/"]);
-    let mut size_vec: Vec<&i32> = Vec::from_iter(map.values());
-    size_vec.sort();
-
-    **size_vec
-        .iter()
-        .find(|item| ***item >= space_needed)
+    *map.values()
+        .filter(|x| **x >= TOTAL_REQUIRED_SPACE - (TOTAL_SPACE - map["/"]))
+        .min()
         .unwrap()
 }
 
