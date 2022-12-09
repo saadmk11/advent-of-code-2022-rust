@@ -9,6 +9,7 @@ mod d4;
 mod d5;
 mod d6;
 mod d7;
+mod d8;
 
 fn main() {
     println!("Advent of Code 2022!");
@@ -33,4 +34,7 @@ fn main() {
     // Day 07
     assert_eq!(1477771, d7::part1(read_file(7)));
     assert_eq!(3579501, d7::part2(read_file(7)));
+    // Day 08
+    assert_eq!(1798, d8::part1(read_file(8)));
+    assert_eq!(259308, d8::part2(read_file(8)));
 }
