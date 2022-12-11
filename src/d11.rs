@@ -5,7 +5,7 @@ enum WorryOperation {
 
 #[derive(Debug)]
 struct Monkey {
-    pub inspection_count: i64,
+    inspection_count: i64,
     items: Vec<i64>,
     div_by: i64,
     true_case: i64,
