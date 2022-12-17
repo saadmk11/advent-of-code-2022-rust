@@ -6,6 +6,7 @@ mod d1;
 mod d10;
 mod d11;
 mod d12;
+mod d13;
 mod d2;
 mod d3;
 mod d4;
@@ -53,4 +54,7 @@ fn main() {
     // Day 12
     assert_eq!(520, d12::part1(read_file(12)));
     assert_eq!(508, d12::part2(read_file(12)));
+    // Day 13
+    assert_eq!(6478, d13::part1(read_file(13)));
+    assert_eq!(21922, d13::part2(read_file(13)));
 }
