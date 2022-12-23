@@ -8,6 +8,7 @@ mod d11;
 mod d12;
 mod d13;
 mod d14;
+mod d15;
 mod d2;
 mod d3;
 mod d4;
@@ -61,4 +62,7 @@ fn main() {
     // Day 14
     assert_eq!(799, d14::part1(read_file(14)));
     assert_eq!(29076, d14::part2(read_file(14)));
+    // Day 15
+    assert_eq!(4883971, d15::part1(read_file(15), 2000000));
+    assert_eq!(12691026767556, d15::part2(read_file(15), 4000000));
 }
